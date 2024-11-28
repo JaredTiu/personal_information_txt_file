@@ -9,15 +9,16 @@ try:
     #read the output file 
     with open(output_file, "r") as file:
         #this reads each lines in the file
-        lines = file.readlines
+        
     #ask user for name input
         name_search = input("Who are you searching for?: ")
+        exists = False
 
-    for i in lines: 
-        if lines.strip().startswith("Name: ") and name_search in lines: 
-            exists = True
-            information = lines[i:i+6] #since every person has six lines between them
-            break
+        for i in file: 
+            if i.startswith("Name:") and name_search in file: 
+                exists = True
+                information = file[i:i+6] #since every person has six lines between them
+                break
 
 except FileNotFoundError:
     print("File not found")
