@@ -60,7 +60,7 @@ while True:
         email = input("Please Input a valid email: ")
     email_array.append(email)
 
-    magic_sarap = input("Binibilang mo ba ang butil ng magic sarap? y/n: ")
+    magic_sarap = input("Binibilang mo ba ang butil ng magic sarap? y/n: ").lower()
     magic_sarap_array.append(magic_sarap)
     
     for i in magic_sarap_array:
@@ -73,7 +73,7 @@ while True:
             input("Input again, binibilang mo ba ang butil ng magic sarap? y/n: ")
     
     #make a loop asking if the user wants to continue 
-    retry = input("Do you want to contiue? y/n: ")
+    retry = input("Do you want to contiue? y/n: ").lower()
 
     if retry != "y": 
         print("Information has been printed in the txt file, Thank you.")
