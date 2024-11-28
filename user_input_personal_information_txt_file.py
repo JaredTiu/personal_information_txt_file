@@ -35,13 +35,13 @@ while True:
             print("Invalid input")
             input("Input again, binibilang mo ba ang butil ng magic sarap? y/n: ")
 
-    for i in range(len(name_array)):
-        file_txt.write(f"Name: {name_array[i]} \n" )
-        file_txt.write(f"Age: {age_array[i]} \n" )
-        file_txt.write(f"Date of birth: {date_of_birth_array[i]} \n" )
-        file_txt.write(f"Binibilang mo ba ang magic sarap?: {converted_array[i]} \n\n" )
-
     retry = input("Do you want to contiue? y/n: ")
 
     if retry != "y": 
         break
+
+for i in range(len(name_array)):
+    file_txt.write(f"Name: {name_array[i]} \n" )
+    file_txt.write(f"Age: {age_array[i]} \n" )
+    file_txt.write(f"Date of birth: {date_of_birth_array[i]} \n" )
+    file_txt.write(f"Binibilang mo ba ang magic sarap?: {converted_array[i]} \n\n" )
