@@ -1,7 +1,7 @@
 import datetime
+
 file_txt = open("./output.txt", "w")
 
-#get the personal info and store in a array 
 #make a loop asking if the user wants to continue 
 #write the stored value in the array in the txt file
 
@@ -11,16 +11,22 @@ date_of_birth_array = []
 magic_sarap_array = []
 converted_array = []
 
+#get the personal info and store in a array 
 while True: 
-
     name = input("Input name: ")
+
     name_array.append(name)
 
-    age = int(input("Input age: "))
-    age_array.append(age)
+    while True:    
+        try: 
+            age = int(input("Input age: "))
+            age_array.append(age)
+            break
+        except:
+            print("Enter a valid age. ")
+
 
     date_of_birth = (input("Input your date of birth: "))
-    # converted_date = datetime.datetime.strptime(f"%B %d, %Y", {date_of_birth} ).strftime("%m/%d/%y")
     date_of_birth_array.append(date_of_birth)
 
     magic_sarap = input("Binibilang mo ba ang butil ng magic sarap? y/n: ")
@@ -38,6 +44,7 @@ while True:
     retry = input("Do you want to contiue? y/n: ")
 
     if retry != "y": 
+        print("Information has been printed in the txt file, Thank you.")
         break
 
 for i in range(len(name_array)):
