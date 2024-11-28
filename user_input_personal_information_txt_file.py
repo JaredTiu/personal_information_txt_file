@@ -19,9 +19,9 @@ while True:
     age = int(input("Input age: "))
     age_array.append(age)
 
-    # date_of_birth = (input("Input your date of birth: "))
-    converted_date = datetime.datetime.strptime(f"%B %d, %Y", (input("Input your date of birth: ")).strftime("%m/%d/%y"))
-    date_of_birth_array.append(converted_date)
+    date_of_birth = (input("Input your date of birth: "))
+    # converted_date = datetime.datetime.strptime(f"%B %d, %Y", {date_of_birth} ).strftime("%m/%d/%y")
+    date_of_birth_array.append(date_of_birth)
 
     magic_sarap = input("Binibilang mo ba ang butil ng magic sarap? y/n: ")
     magic_sarap_array.append(magic_sarap)
@@ -35,16 +35,13 @@ while True:
             print("Invalid input")
             input("Input again, binibilang mo ba ang butil ng magic sarap? y/n: ")
 
+    for i in range(len(name_array)):
+        file_txt.write(f"Name: {name_array[i]} \n" )
+        file_txt.write(f"Age: {age_array[i]} \n" )
+        file_txt.write(f"Date of birth: {date_of_birth_array[i]} \n" )
+        file_txt.write(f"Binibilang mo ba ang magic sarap?: {converted_array[i]} \n\n" )
+
     retry = input("Do you want to contiue? y/n: ")
 
     if retry != "y": 
         break
-
-for i in name_array:
-    file_txt.write(f"Name: {i} \n" )
-for i in age_array:
-    file_txt.write(f"Age: {i} \n" )
-for i in date_of_birth_array:
-    file_txt.write(f"Date of birth: {i} \n" )
-for i in converted_array: 
-    file_txt.write(f"Binibilang mo ba ang magic sarap?: {i} \n\n" )
