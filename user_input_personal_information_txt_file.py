@@ -6,6 +6,14 @@ def valid_name(name):
             return False
     return True 
 
+def email_checker(email):
+    character = ("@")
+
+    if any((c in character) for c in email):
+        return True 
+    else: 
+        return False
+
 file_txt = open("./output.txt", "w")
 
 name_array = []
@@ -34,16 +42,22 @@ while True:
         except:
             print("Enter a valid age. ")
 
-
-    date_of_birth = (input("Input your date of birth (MM/DD/YY): "))
-    extracting_DoB = datetime.strptime(date_of_birth, "%B %d, %Y")
-    converted_DoB = extracting_DoB.strftime("%m/%d/%y")
-    date_of_birth_array.append(converted_DoB)
+    while True: 
+        try:
+            date_of_birth = (input("Input your date of birth (MM/DD/YY, Example: August 17, 2006): "))
+            extracting_DoB = datetime.strptime(date_of_birth, "%B %d, %Y")
+            converted_DoB = extracting_DoB.strftime("%m/%d/%y")
+            date_of_birth_array.append(converted_DoB)
+            break
+        except:
+            print("Please enter in MM/DD/YY format")
 
     address = input("Input your address here: ")
     address_array.append(address)
 
     email = input("Input your email here: ")
+    while not email_checker(email):
+        email = input("Please Input a valid email: ")
     email_array.append(email)
 
     magic_sarap = input("Binibilang mo ba ang butil ng magic sarap? y/n: ")
@@ -52,7 +66,7 @@ while True:
     for i in magic_sarap_array:
         if i == "y":
             converted_array.append("Yes")
-        elif i == "n":
+        elif i != "y":
             converted_array.append("No")
         else: 
             print("Invalid input")
