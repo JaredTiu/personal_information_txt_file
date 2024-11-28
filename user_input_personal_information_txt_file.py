@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 def valid_name(name):
     for x in name: 
@@ -11,6 +11,8 @@ file_txt = open("./output.txt", "w")
 name_array = []
 age_array = []
 date_of_birth_array = []
+address_array = []
+email_array = []
 magic_sarap_array = []
 converted_array = []
 
@@ -33,8 +35,13 @@ while True:
             print("Enter a valid age. ")
 
 
-    date_of_birth = (input("Input your date of birth: "))
-    date_of_birth_array.append(date_of_birth)
+    date_of_birth = (input("Input your date of birth (MM/DD/YY): "))
+    extracting_DoB = datetime.strptime(date_of_birth, "%B %d, %Y")
+    converted_DoB = extracting_DoB.strftime("%m/%d/%y")
+    date_of_birth_array.append(converted_DoB)
+
+    address = input("Input your address here: ")
+    address_array.append(address)
 
     magic_sarap = input("Binibilang mo ba ang butil ng magic sarap? y/n: ")
     magic_sarap_array.append(magic_sarap)
@@ -60,4 +67,5 @@ for i in range(len(name_array)):
     file_txt.write(f"Name: {name_array[i]} \n" )
     file_txt.write(f"Age: {age_array[i]} \n" )
     file_txt.write(f"Date of birth: {date_of_birth_array[i]} \n" )
+    file_txt.write(f"Adress: {address_array[i]} \n" )
     file_txt.write(f"Binibilang mo ba ang magic sarap?: {converted_array[i]} \n\n" )
