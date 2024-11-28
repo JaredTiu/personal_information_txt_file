@@ -44,7 +44,7 @@ while True:
 
     while True: 
         try:
-            date_of_birth = (input("Input your date of birth (MM/DD/YY, Example: August 17, 2006): "))
+            date_of_birth = (input("Input your date of birth (MM/DD/YY, Example: May 7, 1995): "))
             extracting_DoB = datetime.strptime(date_of_birth, "%B %d, %Y")
             converted_DoB = extracting_DoB.strftime("%m/%d/%y")
             date_of_birth_array.append(converted_DoB)
