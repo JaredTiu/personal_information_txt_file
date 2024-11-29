@@ -90,6 +90,6 @@ for i in range(len(name_array)):
     file_txt.write(f"Date of birth: {date_of_birth_array[i]} \n" )
     file_txt.write(f"Adress: {address_array[i]} \n" )
     file_txt.write(f"Email: {email_array[i]} \n" )
-    file_txt.write(f"Binibilang mo ba ang magic sarap?: {converted_array[i]} \n\n" )
+    file_txt.write(f"Binibilang mo ba ang butil ng magic sarap?: {converted_array[i]} \n\n" )
 
 file_txt.close
