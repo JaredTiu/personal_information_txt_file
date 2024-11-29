@@ -15,6 +15,8 @@ try:
             #ask user for name input
         while True:
             name_search = input("Who are you searching for?(enter the full name): ").lower()
+            while not valid_name(name_search) or name_search.isspace() or name_search.strip() == "":
+                name_search = input("please enter a valid name: ")
             exists = False
         
             for i, line in enumerate(read): 
