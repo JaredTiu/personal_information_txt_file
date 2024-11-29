@@ -11,14 +11,19 @@ try:
         read = file.readlines()
     #ask user for name input
         name_search = input("Who are you searching for?: ")
-        exists = False
-        information = []
+        # exists = False
+        # information = []
 
         for i, line in enumerate(read): 
-            # if line.startswith("Name: ") and name_search in read: 
-            if name_search in line:
-                print(read[i])
-                print(read[i + 1])
+            if line.startswith("Name: ") and name_search in line: 
+            # if name_search in line:
+                print(read[i], end= "")
+                print(read[i + 1], end= "")
+                print(read[i + 2], end= "")
+                print(read[i + 3], end= "")
+                print(read[i + 4], end= "")
+                print(read[i + 5], end= "")
+                # print(read[i + 6], end= "")
 
 
                 # exists = True
@@ -28,4 +33,4 @@ try:
 except FileNotFoundError:
     print("File not found")
 
-print(information)
+# print(information)
