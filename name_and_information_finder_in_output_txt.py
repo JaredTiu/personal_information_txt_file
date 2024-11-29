@@ -4,23 +4,29 @@
 
 output_file = "output.txt"
 
-try: 
-        #read the output file 
+try:   
+    #read the output file 
     with open(output_file, "r") as file:
         #this reads each lines in the file
         read = file.readlines()
-            
             #ask user for name input
-        name_search = input("Who are you searching for?(enter the full name): ")
+        name_search = input("Who are you searching for?(enter the full name): ").lower()
         exists = False
 
         for i, line in enumerate(read): 
             if line.startswith("Name: ") and name_search in line.lower():
+                print("\nPerson Found. \n")
+                print("\nDisplaying Information: \n")
+                
                 for n in range(i, i + 7):
                     if n <= len(read):
                         print(read[n], end= "")
+                        exists = True
                         break
-        exists = True
+            else:
+                print("Person Not Found")
+                break
+        
 
         if exists == False:
             print(f"The is no person {name_search} found in the txt file.")
@@ -28,5 +34,3 @@ try:
 
 except FileNotFoundError:
     print("File not found")
-
-# print(information)
