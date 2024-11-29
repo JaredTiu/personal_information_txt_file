@@ -1,6 +1,9 @@
-#read the output file 
-#ask user for name input 
-#search for it in the file 
+def valid_name(name_search):
+    for x in name_search: 
+        if not x.isalpha() or x == "":
+            return False
+        elif all(x.isalpha() or x.isspace() for x in name_search):
+            return True 
 
 output_file = "output.txt"
 
@@ -10,27 +13,31 @@ try:
         #this reads each lines in the file
         read = file.readlines()
             #ask user for name input
-        name_search = input("Who are you searching for?(enter the full name): ").lower()
-        exists = False
-
-        for i, line in enumerate(read): 
-            if line.startswith("Name: ") and name_search in line.lower():
-                print("\nPerson Found. \n")
-                print("\nDisplaying Information: \n")
-                
-                for n in range(i, i + 7):
-                    if n <= len(read):
-                        print(read[n], end= "")
-                        exists = True
-                        break
-            else:
-                print("Person Not Found")
-                break
+        while True:
+            name_search = input("Who are you searching for?(enter the full name): ").lower()
+            exists = False
         
+            for i, line in enumerate(read): 
+                if line.startswith("Name: ") and name_search in line.lower():
+                    print("\nPerson Found. \n")
+                    print("\nDisplaying Information: \n")
+                
+                    for n in range(i, i + 7):
+                        if n <= len(read):
+                            print(read[n], end= "")
+                            
+                    exists = True
+                    break
+        
+            if exists == False:
+                print(f"The is no person {name_search} found in the txt file.")
+                print("REMINDER TO INPUT FIRST NAME, MIDDLE NAME, AND SURNAME")
 
-        if exists == False:
-            print(f"The is no person {name_search} found in the txt file.")
-    
+            if_continue = input("Do you want to find another person the txt file?(y/n): ")
+
+            if if_continue != "y":
+                print("Exiting...")
+                break
 
 except FileNotFoundError:
     print("File not found")
