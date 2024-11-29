@@ -35,7 +35,7 @@ try:
                 print(f"The is no person {name_search} found in the txt file.")
                 print("REMINDER TO INPUT FIRST NAME, MIDDLE NAME, AND SURNAME")
 
-            if_continue = input("Do you want to find another person the txt file?(y/n): ")
+            if_continue = input("Do you want to find another person the txt file?(y/n): ").lower()
 
             if if_continue != "y":
                 print("Exiting...")
