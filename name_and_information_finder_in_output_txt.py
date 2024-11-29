@@ -15,7 +15,7 @@ try:
         # information = []
 
         for i, line in enumerate(read): 
-            if line.startswith("Name: ") and name_search in line: 
+            if line.startswith("Name: ") and name_search in line.lower():
             # if name_search in line:
                 print(read[i], end= "")
                 print(read[i + 1], end= "")
@@ -23,7 +23,7 @@ try:
                 print(read[i + 3], end= "")
                 print(read[i + 4], end= "")
                 print(read[i + 5], end= "")
-                # print(read[i + 6], end= "")
+                print(read[i + 6], end= "")
 
 
                 # exists = True
