@@ -4,7 +4,8 @@ def valid_name(name):
     for x in name: 
         if not x.isalpha() or x == "":
             return False
-    return True 
+        elif all(x.isalpha() or x.isspace() for x in name):
+            return True 
 
 def email_checker(email):
     character = ("@")
@@ -26,7 +27,7 @@ converted_array = []
 
 #get the personal info and store in a array 
 while True: 
-    name = input("Input name: ")
+    name = input("Enter your full name (First name, Middle Initial, Surname): ")
     while not valid_name(name) or name.isspace() or name.strip() == "":
        name = input("please enter a valid name: ")
     name_array.append(name)
