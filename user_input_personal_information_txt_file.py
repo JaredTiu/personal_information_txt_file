@@ -60,17 +60,20 @@ while True:
         email = input("Please Input a valid email: ")
     email_array.append(email)
 
-    magic_sarap = input("Binibilang mo ba ang butil ng magic sarap? y/n: ").lower()
-    magic_sarap_array.append(magic_sarap)
+    while True:
+        try:
+            magic_sarap = input("Binibilang mo ba ang butil ng magic sarap? y/n: ").lower()
     
-    for i in magic_sarap_array:
-        if i == "y":
-            converted_array.append("Yes")
-        elif i != "y":
-            converted_array.append("No")
-        else: 
-            print("Invalid input")
-            input("Input again, binibilang mo ba ang butil ng magic sarap? y/n: ")
+            if magic_sarap == "y":
+                converted_array.append("Yes")
+            elif magic_sarap == "n":
+                converted_array.append("No")
+            else:
+                raise
+        
+            break
+        except: 
+            print("INVALID")
     
     #make a loop asking if the user wants to continue 
     retry = input("Do you want to contiue? y/n: ").lower()
@@ -87,3 +90,5 @@ for i in range(len(name_array)):
     file_txt.write(f"Adress: {address_array[i]} \n" )
     file_txt.write(f"Email: {email_array[i]} \n" )
     file_txt.write(f"Binibilang mo ba ang magic sarap?: {converted_array[i]} \n\n" )
+
+file_txt.close
