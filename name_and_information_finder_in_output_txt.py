@@ -17,13 +17,17 @@ try:
         for i, line in enumerate(read): 
             if line.startswith("Name: ") and name_search in line.lower():
             # if name_search in line:
-                print(read[i], end= "")
-                print(read[i + 1], end= "")
-                print(read[i + 2], end= "")
-                print(read[i + 3], end= "")
-                print(read[i + 4], end= "")
-                print(read[i + 5], end= "")
-                print(read[i + 6], end= "")
+                for n in range(i, i + 7):
+                    if n <= len(read):
+                        print(read[n], end= "")
+                # print(read[i], end= "")
+                # print(read[i + 1], end= "")
+                # print(read[i + 2], end= "")
+                # print(read[i + 3], end= "")
+                # print(read[i + 4], end= "")
+                # print(read[i + 5], end= "")
+                # print(read[i + 6], end= "")
+                # print(read in range(i:i +7))
 
 
                 # exists = True
